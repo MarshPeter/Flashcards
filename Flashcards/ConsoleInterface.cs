@@ -1,7 +1,3 @@
-using System.Drawing;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.CompilerServices;
-
 namespace Flashcards;
 
 public class ConsoleInterface
@@ -47,6 +43,9 @@ public class ConsoleInterface
                 return;
             case "2":
                 CreateStack();
+                break;
+            case "3":
+                ViewStacks();
                 break;
             default:
                 InvalidChoice();
@@ -245,6 +244,16 @@ public class ConsoleInterface
         Console.ReadKey();
     }
 
+    // option 3 functions
+    public void ViewStacks()
+    {
+        Console.Clear();
+        Console.WriteLine("Here are the stacks you can view");
+        TbDisplay.ListStacks(Stacks);
+
+    }
+
+    // confirmation functions
     public bool ConfirmationMessage(string prompt)
     {
         while (true)

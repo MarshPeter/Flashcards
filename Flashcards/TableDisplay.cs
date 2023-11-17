@@ -35,4 +35,23 @@ public class TableDisplay
             .ExportAndWriteLine();
     }
 
+    public void ListStacks(List<Stack> stacks)
+    {
+        List<List<object>> tableData = new();
+
+        foreach (Stack stack in stacks)
+        {
+            tableData.Add(new List<object>(){
+                stack.DisplayId,
+                stack.StackName!
+            });
+        }
+
+        ConsoleTableBuilder
+            .From(tableData)
+            .WithTitle("Stacks")
+            .WithColumn("Id", "Name")
+            .ExportAndWriteLine();
+    }
+
 }
